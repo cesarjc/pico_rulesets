@@ -2,7 +2,7 @@ ruleset temperature_store {
   meta {
     shares __testing
     provides 
-            
+            temperatures,
             threshold_violations,
             inrange_temperatures
     shares 
