@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Single Page</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+        <script src="temps.js"></script>
+        <style>
+            body, html {
+                width: 100%;
+                height: 100%;
+            }
+            body {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+    </head>
+    <body ng-app="temperatures" ng-controller="MainCtrl" >
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="page-header"> 
+                        <h2>Current Temperature</h2>
+                        
+                        <div style="font-size: 60pt; text-align: center">
+                            {{temperatures[temperatures.length -1].temperature}}
+                        </div>
+                </div>
+                <hr>
+                <h2>Recent Temperatures</h2>
+                <div style="display:flex; flex-direction: row">
+                    <div style="width: 40px;  margin-right: 5px">Temp</div>&middot;
+                    <div style="margin-left: 5px;">Time</div>
+                </div>
+                <div ng-repeat="temperature in temperatures | orderBy: '-timestamp'">
+                    <div style="display:flex; flex-direction: row">
+                        <div style="width: 40px; text-align: right; margin-right: 5px">{{temperature.temperature}} </div>&middot;
+                        <div style="margin-left: 5px;">{{temperature.timestamp}}</div>
+                    </div>
+                </div>
+                <hr>
+                <h2>Threshold Violations</h2>
+                <div ng-repeat="violation in temp_violations | orderBy: '-ordinal'">
+                    {{violation.temperature}} &middot;
+                    {{violation.timestamp}} 
+                </div>
+            </div>
+            <hr>
+            <div>
+                <a style="text-decoration: none;" href="/profile_info.html">View sensor profile info</a>
+            </div>
+        </div>
+        
+    </body>
+</html>
