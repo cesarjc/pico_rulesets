@@ -1,0 +1,60 @@
+<html>
+        <head>
+                <title>Sensor Profile Info</title>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+                <script src="profile.js"></script>
+                <style>
+            body, html {
+                width: 100%;
+                height: 100%;
+            }
+            body {
+                display: flex;
+                justify-content: center;
+            }
+        </style>
+            </head>
+    <body ng-app="profile" ng-controller="MainCtrl">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                
+                <h2>Profile Info</h2>
+                <form>
+                    <div>
+                        <label>
+                            Name
+                            <input type="text" ng-model="profile_info.name">
+                        </label>
+                        
+                    </div>
+                    <div>
+                        <label>
+                            Location
+                            <input type="text" ng-model="profile_info.location">
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Threshold
+                            <input type="text" ng-model="profile_info.threshold">
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Contact Number
+                            <input type="text" ng-model="profile_info.number">
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="submit" ng-click="submitForm()" value="Update">
+                        </label>
+                    </div>
+                </form>
+            </div>
+            <a style="text-decoration: none;" href="/singlepage.html">back to temperature information</a>
+        </div>
+    </body>
+    
+</html>
